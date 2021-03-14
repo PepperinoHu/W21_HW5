@@ -40,7 +40,7 @@ class TestCard(unittest.TestCase):
 
         '''
         self.assertEqual(hw5_cards.Card(0,12).rank_name,'Queen')
-        #return X, Y
+        return hw5_cards.Card(0,12).rank_name,'Queen'
     
     def test_q2(self):
         '''
@@ -55,7 +55,7 @@ class TestCard(unittest.TestCase):
 
         '''
         self.assertEqual(hw5_cards.Card(1,12).suit_name,'Clubs')
-        #return X, Y    
+        return hw5_cards.Card(1,12).suit_name,'Clubs'    
     
 
     def test_q3(self):
@@ -72,7 +72,7 @@ class TestCard(unittest.TestCase):
 
         '''
         self.assertEqual(hw5_cards.Card(3,13).__str__(),'King of Spades')
-        #return X, Y
+        return hw5_cards.Card(3,13).__str__(),'King of Spades'
 
     def test_q4(self):
         '''
@@ -87,7 +87,7 @@ class TestCard(unittest.TestCase):
 
         '''
         self.assertEqual(len(hw5_cards.Deck().cards),52)
-        #return X, Y  
+        return len(hw5_cards.Deck().cards),52
 
     def test_q5(self):
         '''
@@ -102,7 +102,7 @@ class TestCard(unittest.TestCase):
 
         '''
         self.assertIsInstance(hw5_cards.Deck().deal_card(),hw5_cards.Card)
-        #return X, Y
+        return hw5_cards.Deck().deal_card(),hw5_cards.Card
     
     def test_q6(self):
         '''
@@ -120,7 +120,7 @@ class TestCard(unittest.TestCase):
         deck = hw5_cards.Deck()
         deck.deal_card()
         self.assertEqual(len(deck.cards),51)
-           #return X, Y    
+        return len(deck.cards),51   
     
 
     def test_q7(self):
@@ -140,7 +140,7 @@ class TestCard(unittest.TestCase):
         card = deck.deal_card()
         deck.replace_card(card)
         self.assertEqual(len(deck.cards),52)
-        #return X, Y
+        return len(deck.cards),52
     
     def test_q8(self):
         '''
@@ -158,7 +158,7 @@ class TestCard(unittest.TestCase):
         deck = hw5_cards.Deck()
         deck.replace_card(hw5_cards.Card(0,1))
         self.assertEqual(len(deck.cards),52)
-        #return X, Y  
+        return len(deck.cards),52 
 
 
 

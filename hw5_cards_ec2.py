@@ -95,12 +95,9 @@ class Deck:
         else:
             extra_cards = len(self.cards) % num_of_hands
             cards_per_hand = int(len(self.cards) / num_of_hands)
-            print(extra_cards,cards_per_hand )
             list_of_hands = [[self.deal_card() for i in range(cards_per_hand)] for j in range(num_of_hands)]
             for i in range(extra_cards):
                 list_of_hands[i].append(self.deal_card())
-        for hand in list_of_hands:
-            print_hand(hand)
         return list_of_hands
     def shuffle(self):
         '''shuffles (randomizes the order) of the Cards

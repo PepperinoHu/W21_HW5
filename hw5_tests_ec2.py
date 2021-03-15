@@ -163,7 +163,7 @@ class TestCard(unittest.TestCase):
 #bonus tests!
     def test_q9(self):
         '''
-        test that when dealing 30 cards, and calling remove_pairs function, the pairs are removed.
+        test that when calling remove_pairs function with a 30-card-hand, the pairs are removed. But if three cards of the same rank is present, only two of them are removed.
         '''
         deck = hw5_cards_ec2.Deck()
         hand = deck.deal_hand(30)
@@ -174,6 +174,35 @@ class TestCard(unittest.TestCase):
             r = c.rank_name[0]
             hand_set.add(tuple([r,s]))
         self.assertEqual(hand_set,set({('Q','S'),('J','S'),('1','S'),('K','S')}))
+
+    def test_q10(self):
+        '''
+        basic deal test, test that deal function in deck outputs list of hands with the correct size
+        '''
+        deck = hw5_cards_ec2.Deck()
+        list_of_hands = deck.deal(num_of_hands = 4,cards_per_hand = 5)
+        num_of_hands = len(list_of_hands)
+        self.assertEqual(num_of_hands,4)
+        for hand in list_of_hands:
+            self.assertEqual(len(hand),5)
+
+    def test_q11(self):
+        '''
+        more comlicated deal test, test that deal function in deck outputs list of hands with the correct size, when the hand sizes are uneven
+        '''
+        deck = hw5_cards_ec2.Deck()
+        list_of_hands = deck.deal(num_of_hands = 5,cards_per_hand = -1)
+        num_of_hands = len(list_of_hands)
+        self.assertEqual(num_of_hands,5)
+        longer_hand_count = 0
+        regular_hand_count = 0
+        for hand in list_of_hands:
+            if len(hand)==10:
+                regular_hand_count +=1
+            elif len(hand) == 11:
+                longer_hand_count+=1
+        self.assertEqual(longer_hand_count,2)
+        self.assertEqual(regular_hand_count,3)
 
 if __name__=="__main__":
     unittest.main()
